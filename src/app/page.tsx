@@ -1,18 +1,35 @@
 "use client";
 import BlurText from './components/BlurText/BlurText';
+import GooeyNav from './components/GooeyNav/GooeyNav';
 import Lanyard from './components/Lanyard/Lanyard';
 import RotatingText from "./components/RotatingText/RotatingText";
 import SplitText from './components/SplitText/SplitText';
 
+const items = [
+  { label: "Home", href: "#" },
+  { label: "About", href: "#" },
+  { label: "Tech Stack", href: "#" },
+];
+
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#050a30] flex items-center justify-center">
-      <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col lg:grid lg:grid-cols-12 lg:items-center">
+    <div className="min-h-screen overflow-x-hidden bg-[#050a30] flex items-center justify-center pt-16 sm:pt-0">
+      <div className='fixed top-0 left-0 h-24 w-full bg-[#050a30] flex items-center justify-center'>
+        <GooeyNav
+          items={items}
+          animationTime={200}
+          colors={[1, 2, 3, 4]}
+          timeVariance={300}
+        />
+      </div>
+      <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col lg:grid lg:grid-cols-12 lg:items-center mt-8 sm:mt-0">
         {/* Left Section */}
         <div className="lg:col-span-7 flex justify-center lg:justify-start">
           <div className='flex flex-col gap-6 text-center lg:text-left'>
             <div className="flex flex-col items-center lg:items-start gap-2">
-              <h1 className='text-2xl font-bold text-white'>I'm Ready For Job</h1>
+              <h1 className="text-xl sm:text-2xl font-bold text-white">
+                I'm Ready For Job
+              </h1>
               <RotatingText
                 texts={['Web Development', 'Web Programming', 'Mobile Development', 'Mobile Programming']}
                 mainClassName="px-2 sm:px-3 bg-cyan-200 text-black py-2 rounded-lg text-2xl font-bold inline-flex transition-all"
@@ -28,7 +45,7 @@ export default function Home() {
             </div>
             <div className='flex flex-col items-center lg:items-start'>
               <SplitText
-                text="I'm Irfan Muria"
+                text="Hello, I'm Irfan Muria"
                 className="text-3xl sm:text-4xl text-white font-bold"
                 delay={50}
                 animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
@@ -57,7 +74,7 @@ export default function Home() {
         </div>
 
         {/* Right Section */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end mt-8 lg:mt-0">
+        <div className="lg:col-span-5 flex justify-center lg:justify-start">
           <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
         </div>
       </div>
